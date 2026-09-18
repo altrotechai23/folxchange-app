@@ -105,7 +105,7 @@ export default function Home() {
           <h2 className="heading-lg">
             Your finances.
             <br />
-            Your control.
+            Your control..
           </h2>
         </div>
       </section>
