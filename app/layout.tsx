@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.folxchange.com"),
+  // metadataBase: new URL("https://www.folxchange.com"),
+  metadataBase: new URL("https://folxchange-app-j4vl.vercel.app"),
 
   title: {
     default: "FolXchange — Move Money Without Borders",
