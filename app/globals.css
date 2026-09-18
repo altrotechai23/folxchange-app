@@ -1,26 +1,169 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f9ff;
+  --foreground: #101a4c;
+
+  --navy: #111a55;
+  --navy-deep: #080f3d;
+
+  --blue: #3157ed;
+  --blue-bright: #4169ff;
+  --blue-soft: #eaf0ff;
+
+  --muted: #667092;
+
+  --border: rgba(20, 35, 100, 0.1);
+
+  --radius-xl: 2rem;
+  --radius-2xl: 2.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: auto;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: var(--blue);
+  color: white;
+}
+
+/* --------------------------------
+   Layout
+-------------------------------- */
+
+.container {
+  width: min(100% - 32px, 1200px);
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: min(100% - 64px, 1200px);
+  }
+}
+
+/* --------------------------------
+   Typography
+-------------------------------- */
+
+.display-text {
+  font-size: clamp(3rem, 12vw, 8rem);
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+  font-weight: 800;
+}
+
+.heading-xl {
+  font-size: clamp(2.4rem, 7vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  font-weight: 800;
+}
+
+.heading-lg {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-weight: 750;
+}
+
+/* --------------------------------
+   Glass
+-------------------------------- */
+
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* --------------------------------
+   Glow
+-------------------------------- */
+
+.glow {
+  box-shadow:
+    0 0 0 1px rgba(49, 87, 237, 0.04),
+    0 20px 80px rgba(49, 87, 237, 0.12);
+}
+
+/* --------------------------------
+   Noise
+-------------------------------- */
+
+.noise {
+  position: relative;
+}
+
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("/noise.svg");
+  mix-blend-mode: multiply;
+}
+
+/* --------------------------------
+   Scrollbar
+-------------------------------- */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(17, 26, 85, 0.18);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(17, 26, 85, 0.32);
+}
+
+/* --------------------------------
+   Accessibility
+-------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
