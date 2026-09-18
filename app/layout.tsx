@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import ThemeProvider from "@/components/providers/ThemeProvider";
 
 export const metadata: Metadata = {
-  // metadataBase: new URL("https://www.folxchange.com"),
-  metadataBase: new URL("https://folxchange-app-j4vl.vercel.app"),
+  metadataBase: new URL(
+    "https://folxchange-app-j4vl.vercel.app"
+  ),
 
   title: {
     default: "FolXchange — Move Money Without Borders",
@@ -11,7 +13,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "FolXchange makes it simple to exchange digital assets, currencies and pay everyday bills across Nigeria, the UK, the US and Europe.",
+    "FolXchange makes it simple to exchange digital assets and currencies across Nigeria, the UK, the US and Europe.",
 
   applicationName: "FolXchange",
 
@@ -37,14 +39,23 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  colorScheme: "light dark",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
