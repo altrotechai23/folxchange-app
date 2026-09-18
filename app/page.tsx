@@ -5,6 +5,7 @@ import {
   ChevronDown,
   ShieldCheck,
   Sparkles,
+  WalletCards,
   Zap,
 } from "lucide-react";
 import Navbar from "@/components/navigation/Navbar";
@@ -31,7 +32,7 @@ export default function Home() {
           px-5 pb-16 pt-28
           sm:px-6 sm:pt-32
           lg:flex lg:min-h-[calc(100svh-80px)] lg:items-center
-          lg:px-8 lg:py-20
+          lg:px-8 lg:py-30
         "
       >
         {/* Ambient background */}
@@ -515,37 +516,426 @@ export default function Home() {
       </section>
 
       {/* Why FolXchange */}
+            {/* Why FolXchange */}
       <section
         id="why"
         className="
+          relative overflow-hidden
           border-t border-[var(--border)]
           bg-[var(--surface)]
           px-5 py-24
           sm:px-6 sm:py-32
-          lg:px-8
+          lg:px-8 lg:py-40
         "
       >
-        <div className="container">
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none absolute
+            right-[-10rem] top-[-8rem]
+            h-[28rem] w-[28rem]
+            rounded-full
+            bg-[var(--primary)]
+            opacity-[0.045]
+            blur-[110px]
+          "
+        />
+
+        <div className="container relative z-10">
+          {/* Section intro */}
+          <div
+            className="
+              grid gap-8
+              lg:grid-cols-[0.85fr_1.5fr]
+              lg:items-end
+              lg:gap-16
+            "
+          >
+            <div>
+              <p
+                className="
+                  text-xs font-bold uppercase
+                  tracking-[0.22em]
+                  text-[var(--primary)]
+                "
+              >
+                Why FolXchange
+              </p>
+
+              <div
+                className="
+                  mt-5
+                  flex items-center gap-2
+                  text-xs font-medium
+                  text-[var(--muted)]
+                "
+              >
+                <span
+                  className="
+                    h-1.5 w-1.5
+                    rounded-full
+                    bg-[var(--accent)]
+                  "
+                />
+                Finance, simplified
+              </div>
+            </div>
+
+            <h2
+              className="
+                heading-lg
+                max-w-4xl
+                text-[var(--foreground)]
+              "
+            >
+              Your money should feel
+              <span className="text-[var(--primary)]">
+                {" "}simple.
+              </span>
+            </h2>
+          </div>
+
           <p
             className="
-              text-xs font-bold uppercase
-              tracking-[0.22em]
-              text-[var(--primary)]
+              mt-8 max-w-2xl
+              text-base leading-7
+              text-[var(--muted)]
+              sm:text-lg sm:leading-8
             "
           >
-            Why FolXchange
+            FolXchange brings the essential pieces of your
+            financial life together, so moving between digital
+            assets and everyday currencies feels clear,
+            predictable and effortless.
           </p>
 
-          <h2
+          {/* Product pillars */}
+          <div
             className="
-              heading-lg mt-5 max-w-4xl
-              text-[var(--foreground)]
+              mt-14 grid gap-4
+              md:grid-cols-2
+              lg:mt-20 lg:grid-cols-12
             "
           >
-            Finance without
-            <br />
-            unnecessary complexity.
-          </h2>
+            {/* Primary card */}
+            <article
+              className="
+                group relative overflow-hidden
+                rounded-[2rem]
+                border border-[var(--border)]
+                bg-[var(--surface-muted)]
+                p-6
+                sm:p-8
+                lg:col-span-7
+                lg:min-h-[430px]
+              "
+            >
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  right-[-5rem] top-[-5rem]
+                  h-56 w-56
+                  rounded-full
+                  bg-[var(--primary)]
+                  opacity-[0.08]
+                  blur-3xl
+                  transition-transform duration-700
+                  group-hover:scale-125
+                "
+              />
+
+              <div className="relative flex h-full flex-col">
+                <div className="flex items-start justify-between">
+                  <div
+                    className="
+                      flex h-12 w-12 items-center justify-center
+                      rounded-2xl
+                      bg-[var(--primary-soft)]
+                      text-[var(--primary)]
+                    "
+                  >
+                    <WalletCards className="h-5 w-5" />
+                  </div>
+
+                  <span
+                    className="
+                      rounded-full
+                      border border-[var(--border)]
+                      bg-[var(--surface)]
+                      px-3 py-1.5
+                      text-[10px] font-bold uppercase
+                      tracking-[0.14em]
+                      text-[var(--muted)]
+                    "
+                  >
+                    One home
+                  </span>
+                </div>
+
+                <div className="mt-auto pt-20">
+                  <h3
+                    className="
+                      text-2xl font-bold
+                      tracking-[-0.035em]
+                      text-[var(--foreground)]
+                      sm:text-3xl
+                    "
+                  >
+                    Everything in one place.
+                  </h3>
+
+                  <p
+                    className="
+                      mt-4 max-w-lg
+                      text-sm leading-6
+                      text-[var(--muted)]
+                      sm:text-base
+                    "
+                  >
+                    Keep your digital assets and currencies
+                    organized in one experience designed around
+                    the way you actually move money.
+                  </p>
+
+                  <div
+                    className="
+                      mt-7 flex flex-wrap gap-2
+                    "
+                  >
+                    {["BTC", "ETH", "USDT", "NGN", "USD", "GBP"].map(
+                      (item) => (
+                        <span
+                          key={item}
+                          className="
+                            rounded-full
+                            border border-[var(--border)]
+                            bg-[var(--surface)]
+                            px-3 py-2
+                            text-[10px] font-bold
+                            text-[var(--foreground)]
+                          "
+                        >
+                          {item}
+                        </span>
+                      ),
+                    )}
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            {/* Confidence card */}
+            <article
+              className="
+                group relative overflow-hidden
+                rounded-[2rem]
+                border border-[var(--border)]
+                bg-[var(--surface)]
+                p-6
+                sm:p-8
+                lg:col-span-5
+                lg:min-h-[430px]
+              "
+            >
+              <div className="flex items-start justify-between">
+                <div
+                  className="
+                    flex h-12 w-12 items-center justify-center
+                    rounded-2xl
+                    bg-[var(--accent-soft)]
+                    text-[var(--accent)]
+                  "
+                >
+                  <ShieldCheck className="h-5 w-5" />
+                </div>
+
+                <ArrowUpRight
+                  className="
+                    h-5 w-5
+                    text-[var(--muted)]
+                    transition-transform duration-300
+                    group-hover:-translate-y-1
+                    group-hover:translate-x-1
+                  "
+                />
+              </div>
+
+              <div className="mt-16">
+                <p
+                  className="
+                    text-xs font-bold uppercase
+                    tracking-[0.18em]
+                    text-[var(--accent)]
+                  "
+                >
+                  Move with confidence
+                </p>
+
+                <h3
+                  className="
+                    mt-4
+                    text-2xl font-bold
+                    tracking-[-0.035em]
+                    text-[var(--foreground)]
+                    sm:text-3xl
+                  "
+                >
+                  Clarity at every step.
+                </h3>
+
+                <p
+                  className="
+                    mt-4
+                    text-sm leading-6
+                    text-[var(--muted)]
+                    sm:text-base
+                  "
+                >
+                  Know what you are sending, what you are
+                  receiving and where your transaction stands.
+                </p>
+              </div>
+
+              <div
+                className="
+                  absolute bottom-8 left-6 right-6
+                  rounded-2xl
+                  border border-[var(--border)]
+                  bg-[var(--surface-muted)]
+                  p-4
+                  sm:left-8 sm:right-8
+                "
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-[var(--muted)]">
+                    Transaction status
+                  </span>
+
+                  <span
+                    className="
+                      inline-flex items-center gap-1.5
+                      text-xs font-bold
+                      text-[var(--accent)]
+                    "
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+                    Clear
+                  </span>
+                </div>
+
+                <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-[var(--border)]">
+                  <div
+                    className="
+                      h-full w-3/4
+                      rounded-full
+                      bg-[var(--accent)]
+                    "
+                  />
+                </div>
+              </div>
+            </article>
+
+            {/* Everyday life card */}
+            <article
+              className="
+                group relative overflow-hidden
+                rounded-[2rem]
+                border border-[var(--border)]
+                bg-[var(--foreground)]
+                p-6
+                text-[var(--background)]
+                sm:p-8
+                lg:col-span-12
+                lg:min-h-[290px]
+              "
+            >
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none absolute
+                  bottom-[-8rem] right-[-4rem]
+                  h-72 w-72
+                  rounded-full
+                  bg-[var(--primary)]
+                  opacity-30
+                  blur-[90px]
+                "
+              />
+
+              <div
+                className="
+                  relative
+                  grid gap-10
+                  lg:grid-cols-[1fr_auto]
+                  lg:items-end
+                "
+              >
+                <div>
+                  <div
+                    className="
+                      flex h-12 w-12 items-center justify-center
+                      rounded-2xl
+                      bg-[var(--background)]/10
+                      text-[var(--background)]
+                    "
+                  >
+                    <Zap className="h-5 w-5" />
+                  </div>
+
+                  <p
+                    className="
+                      mt-8
+                      text-xs font-bold uppercase
+                      tracking-[0.18em]
+                      opacity-60
+                    "
+                  >
+                    Built for real life
+                  </p>
+
+                  <h3
+                    className="
+                      mt-4 max-w-2xl
+                      text-3xl font-bold
+                      tracking-[-0.045em]
+                      sm:text-4xl
+                    "
+                  >
+                    From digital assets to
+                    everyday payments.
+                  </h3>
+                </div>
+
+                <div className="max-w-sm">
+                  <p
+                    className="
+                      text-sm leading-6
+                      opacity-65
+                      sm:text-base
+                    "
+                  >
+                    Exchange what you have, pay for what you
+                    need and keep your financial journey moving
+                    without unnecessary friction.
+                  </p>
+
+                  <a
+                    href="#features"
+                    className="
+                      mt-6 inline-flex items-center gap-2
+                      text-sm font-bold
+                      transition-opacity duration-300
+                      hover:opacity-70
+                    "
+                  >
+                    See what you can do
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
