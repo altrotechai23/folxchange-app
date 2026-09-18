@@ -1,5 +1,6 @@
 "use client";
 
+import ThemeToggle from "@/components/ui/ThemeToggle";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -49,12 +50,12 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`
+        className="
           fixed inset-x-0 top-0 z-50
           px-4 pt-4
           transition-all duration-500
           md:px-6 md:pt-6
-        `}
+        "
       >
         <nav
           className={`
@@ -64,8 +65,8 @@ export default function Navbar() {
             md:h-[72px] md:px-6
             ${
               scrolled
-                ? "glass shadow-[0_15px_50px_rgba(15,30,90,0.10)]"
-                : "bg-white/70"
+                ? "glass shadow-[0_15px_50px_rgba(var(--shadow-color),0.10)]"
+                : "bg-[var(--surface)]/70"
             }
           `}
         >
@@ -74,14 +75,15 @@ export default function Navbar() {
             href="#home"
             onClick={closeMenu}
             className="group flex items-center gap-2"
-            aria-label="TorexBit home"
+            aria-label="FolXchange home"
           >
             <span
               className="
                 flex h-9 w-9 items-center justify-center
-                rounded-xl bg-[#3157ed]
+                rounded-xl
+                bg-[var(--primary)]
                 text-sm font-black text-white
-                shadow-[0_8px_24px_rgba(49,87,237,0.28)]
+                shadow-[0_8px_24px_rgba(var(--shadow-color),0.28)]
                 transition-transform duration-300
                 group-hover:scale-105
               "
@@ -89,7 +91,13 @@ export default function Navbar() {
               F
             </span>
 
-            <span className="text-[17px] font-extrabold tracking-[-0.04em] text-[#111a55]">
+            <span
+              className="
+                text-[17px] font-extrabold
+                tracking-[-0.04em]
+                text-[var(--foreground)]
+              "
+            >
               FolXchange
             </span>
           </a>
@@ -101,9 +109,10 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className="
-                  text-sm font-medium text-[#667092]
+                  text-sm font-medium
+                  text-[var(--muted)]
                   transition-colors duration-200
-                  hover:text-[#3157ed]
+                  hover:text-[var(--primary)]
                 "
               >
                 {link.label}
@@ -113,13 +122,16 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden items-center gap-3 md:flex">
+            <ThemeToggle />
+
             <a
               href="#login"
               className="
                 rounded-full px-5 py-3
-                text-sm font-semibold text-[#3157ed]
+                text-sm font-semibold
+                text-[var(--primary)]
                 transition-colors
-                hover:bg-[#eef2ff]
+                hover:bg-[var(--primary-soft)]
               "
             >
               Login
@@ -128,47 +140,53 @@ export default function Navbar() {
             <a
               href="#signup"
               className="
-                rounded-full bg-[#3157ed]
+                rounded-full
+                bg-[var(--primary)]
                 px-5 py-3
-                text-sm font-semibold text-white
-                shadow-[0_10px_30px_rgba(49,87,237,0.22)]
+                text-sm font-semibold
+                text-white
+                shadow-[0_10px_30px_rgba(var(--shadow-color),0.22)]
                 transition-all duration-300
                 hover:-translate-y-0.5
-                hover:bg-[#2749d4]
+                hover:bg-[var(--primary-hover)]
               "
             >
               Get started
             </a>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            type="button"
-            onClick={() => setOpen((value) => !value)}
-            className="
-              flex h-11 w-11 items-center justify-center
-              rounded-xl
-              text-[#111a55]
-              transition-colors
-              hover:bg-[#eef2ff]
-              md:hidden
-            "
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-          >
-            {open ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
-          </button>
+          {/* Mobile controls */}
+          <div className="flex gap-2.5 md:hidden">
+            <ThemeToggle />
+
+            <button
+              type="button"
+              onClick={() => setOpen((value) => !value)}
+              className="
+                flex h-11 w-11 items-center justify-center
+                rounded-xl
+                text-[var(--foreground)]
+                transition-colors
+                hover:bg-[var(--surface-muted)]
+              "
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+            >
+              {open ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
+            </button>
+          </div>
         </nav>
       </header>
 
       {/* Mobile menu */}
       <div
         className={`
-          fixed inset-0 z-40 bg-[#f7f9ff]
+          fixed inset-0 z-40
+          bg-[var(--background)]
           transition-all duration-500
           md:hidden
           ${
@@ -186,10 +204,11 @@ export default function Navbar() {
                 href={link.href}
                 onClick={closeMenu}
                 className={`
-                  border-b border-[#111a55]/10
+                  border-b border-[var(--border)]
                   py-5
-                  text-4xl font-bold tracking-[-0.05em]
-                  text-[#111a55]
+                  text-4xl font-bold
+                  tracking-[-0.05em]
+                  text-[var(--foreground)]
                   transition-all duration-500
                   ${
                     open
@@ -212,8 +231,12 @@ export default function Navbar() {
               onClick={closeMenu}
               className="
                 flex h-14 items-center justify-center
-                rounded-2xl border border-[#3157ed]
-                font-semibold text-[#3157ed]
+                rounded-2xl
+                border border-[var(--primary)]
+                font-semibold
+                text-[var(--primary)]
+                transition-colors
+                hover:bg-[var(--primary-soft)]
               "
             >
               Login
@@ -224,9 +247,13 @@ export default function Navbar() {
               onClick={closeMenu}
               className="
                 flex h-14 items-center justify-center
-                rounded-2xl bg-[#3157ed]
-                font-semibold text-white
-                shadow-[0_15px_40px_rgba(49,87,237,0.25)]
+                rounded-2xl
+                bg-[var(--primary)]
+                font-semibold
+                text-white
+                shadow-[0_15px_40px_rgba(var(--shadow-color),0.25)]
+                transition-all duration-300
+                hover:bg-[var(--primary-hover)]
               "
             >
               Get started
