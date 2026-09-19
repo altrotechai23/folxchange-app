@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import ThemeProvider from "@/components/providers/ThemeProvider";
+import {ThemeProvider} from "@/components/providers/ThemeProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
