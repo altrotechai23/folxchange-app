@@ -1,3 +1,6 @@
+"use client"
+import useFolXchangeMotion from "@/hooks/useFolXchangeMotion";
+
 import {
   ArrowDown,
   ArrowUpRight,
@@ -18,8 +21,11 @@ const currencies = [
 ];
 
 export default function Home() {
+  const motionRootRef = useFolXchangeMotion();
   return (
-    <main className="overflow-hidden bg-[var(--background)] text-[var(--foreground)]">
+    <main 
+      ref={motionRootRef}
+      className=" min-h-screen overflow-hidden bg-[var(--background)] text-[var(--foreground)]">
       <Navbar />
 
       {/* Hero */}
@@ -37,6 +43,7 @@ export default function Home() {
       >
         {/* Ambient background */}
         <div
+          data-motion="hero-glow"
           aria-hidden="true"
           className="
             pointer-events-none absolute
@@ -108,6 +115,7 @@ export default function Home() {
               </div>
 
               <p
+                data-motion="intro"
                 className="
                   mb-5
                   text-xs font-bold uppercase
@@ -120,9 +128,10 @@ export default function Home() {
               </p>
 
               <h1
+                data-motion="intro"
                 className="
                   heading-xl
-                  max-w-4xl
+                  max-w-5xl
                   text-[var(--foreground)]
                 "
               >
@@ -134,6 +143,7 @@ export default function Home() {
               </h1>
 
               <p
+                data-motion="intro"
                 className="
                   mt-7 max-w-xl
                   text-base leading-7
@@ -146,7 +156,9 @@ export default function Home() {
                 payments from one beautifully simple platform.
               </p>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div 
+                data-motion="intro"
+                className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#signup"
                   className="
@@ -188,6 +200,7 @@ export default function Home() {
 
               {/* Trust points */}
               <div
+                data-motion="intro"
                 className="
                   mt-9
                   flex flex-wrap gap-x-5 gap-y-3
@@ -213,7 +226,10 @@ export default function Home() {
             </div>
 
             {/* Exchange product visual */}
-            <div className="relative mx-auto w-full max-w-[460px]">
+            <div
+              data-motion="intro"
+              className="relative mx-auto w-full max-w-[460px]"
+            >
               <div
                 aria-hidden="true"
                 className="
@@ -952,6 +968,7 @@ export default function Home() {
       >
         {/* Ambient glow */}
         <div
+          data-motion="product-glow"
           aria-hidden="true"
           className="
             pointer-events-none absolute
@@ -1035,6 +1052,7 @@ export default function Home() {
           <div className="relative mt-14 sm:mt-20">
             {/* Floating asset — desktop */}
             <div
+              data-motion="float"
               className="
                 absolute -left-5 top-16 z-20
                 hidden
@@ -1083,6 +1101,7 @@ export default function Home() {
 
             {/* Main dashboard */}
             <div
+              data-motion="dashboard"
               className="
                 relative mx-auto
                 max-w-5xl
@@ -1545,6 +1564,7 @@ export default function Home() {
 
             {/* Floating transaction */}
             <div
+              data-motion="float"
               className="
                 absolute -bottom-5 right-[-0.75rem]
                 hidden
