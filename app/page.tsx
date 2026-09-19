@@ -516,7 +516,6 @@ export default function Home() {
       </section>
 
       {/* Why FolXchange */}
-            {/* Why FolXchange */}
       <section
         id="why"
         className="
@@ -939,36 +938,692 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features */}
+      {/* Product Visualization */}
       <section
         id="features"
         className="
+          relative overflow-hidden
           border-t border-[var(--border)]
           bg-[var(--surface-muted)]
           px-5 py-24
           sm:px-6 sm:py-32
-          lg:px-8
+          lg:px-8 lg:py-40
         "
       >
-        <div className="container">
+        {/* Ambient glow */}
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none absolute
+            left-1/2 top-[-12rem]
+            h-[30rem] w-[30rem]
+            -translate-x-1/2
+            rounded-full
+            bg-[var(--primary)]
+            opacity-[0.06]
+            blur-[120px]
+          "
+        />
+
+        <div className="container relative z-10">
+          {/* Section heading */}
+          <div
+            className="
+              grid gap-8
+              lg:grid-cols-[0.8fr_1.2fr]
+              lg:items-end
+              lg:gap-16
+            "
+          >
+            <div>
+              <p
+                className="
+                  text-xs font-bold uppercase
+                  tracking-[0.22em]
+                  text-[var(--primary)]
+                "
+              >
+                Your financial command center
+              </p>
+
+              <div
+                className="
+                  mt-5 flex items-center gap-2
+                  text-xs font-medium
+                  text-[var(--muted)]
+                "
+              >
+                <span
+                  className="
+                    h-1.5 w-1.5
+                    rounded-full
+                    bg-[var(--accent)]
+                  "
+                />
+                One place. Every move.
+              </div>
+            </div>
+
+            <h2
+              className="
+                heading-lg
+                max-w-4xl
+                text-[var(--foreground)]
+              "
+            >
+              One place for
+              <span className="text-gradient">
+                {" "}every move.
+              </span>
+            </h2>
+          </div>
+
           <p
             className="
-              text-xs font-bold uppercase
-              tracking-[0.22em]
-              text-[var(--primary)]
+              mt-8 max-w-2xl
+              text-base leading-7
+              text-[var(--muted)]
+              sm:text-lg sm:leading-8
             "
           >
-            Key features
+            See your balance, move between assets and keep
+            track of every transaction from one calm,
+            beautifully organized financial experience.
           </p>
 
-          <h2
+          {/* Product stage */}
+          <div className="relative mt-14 sm:mt-20">
+            {/* Floating asset — desktop */}
+            <div
+              className="
+                absolute -left-5 top-16 z-20
+                hidden
+                w-44
+                rounded-2xl
+                border border-[var(--border)]
+                bg-[var(--surface)]
+                p-4
+                shadow-[0_24px_70px_rgba(var(--shadow-color),0.12)]
+                lg:block
+              "
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--muted)]">
+                  Bitcoin
+                </span>
+
+                <span className="text-xs font-bold text-[var(--accent)]">
+                  +4.8%
+                </span>
+              </div>
+
+              <div className="mt-4 flex items-center gap-3">
+                <div
+                  className="
+                    flex h-10 w-10 items-center justify-center
+                    rounded-xl
+                    bg-[#f7931a]/15
+                    text-lg
+                  "
+                >
+                  ₿
+                </div>
+
+                <div>
+                  <p className="text-sm font-bold">
+                    0.025 BTC
+                  </p>
+
+                  <p className="mt-0.5 text-[10px] text-[var(--muted)]">
+                    Your balance
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Main dashboard */}
+            <div
+              className="
+                relative mx-auto
+                max-w-5xl
+                overflow-hidden
+                rounded-[2rem]
+                border border-[var(--border)]
+                bg-[var(--surface)]
+                p-3
+                shadow-[0_30px_100px_rgba(var(--shadow-color),0.12)]
+                sm:rounded-[2.5rem]
+                sm:p-5
+                lg:p-6
+              "
+            >
+              {/* Browser / app chrome */}
+              <div
+                className="
+                  flex items-center justify-between
+                  px-2 pb-4
+                  sm:px-3 sm:pb-5
+                "
+              >
+                <div className="flex items-center gap-2">
+                  <span
+                    className="
+                      h-2 w-2 rounded-full
+                      bg-[var(--accent)]
+                    "
+                  />
+
+                  <span className="text-xs font-bold">
+                    FolXchange
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-1.5">
+                  <span
+                    className="
+                      h-1.5 w-1.5 rounded-full
+                      bg-[var(--border-strong)]
+                    "
+                  />
+
+                  <span
+                    className="
+                      h-1.5 w-1.5 rounded-full
+                      bg-[var(--border-strong)]
+                    "
+                  />
+
+                  <span
+                    className="
+                      h-1.5 w-1.5 rounded-full
+                      bg-[var(--border-strong)]
+                    "
+                  />
+                </div>
+              </div>
+
+              <div
+                className="
+                  grid gap-3
+                  lg:grid-cols-[1.15fr_0.85fr]
+                  lg:gap-4
+                "
+              >
+                {/* Wallet */}
+                <div
+                  className="
+                    rounded-[1.75rem]
+                    bg-[var(--foreground)]
+                    p-5
+                    text-[var(--background)]
+                    sm:p-7
+                  "
+                >
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <p
+                        className="
+                          text-[10px] font-bold uppercase
+                          tracking-[0.16em]
+                          opacity-50
+                        "
+                      >
+                        Total balance
+                      </p>
+
+                      <p
+                        className="
+                          mt-3
+                          text-3xl font-bold
+                          tracking-[-0.045em]
+                          sm:text-5xl
+                        "
+                      >
+                        ₦2,480,500
+                      </p>
+
+                      <p
+                        className="
+                          mt-2 text-xs
+                          opacity-50
+                        "
+                      >
+                        ≈ $1,485.40 USD
+                      </p>
+                    </div>
+
+                    <div
+                      className="
+                        flex h-10 w-10 items-center
+                        justify-center
+                        rounded-xl
+                        bg-[var(--background)]/10
+                      "
+                    >
+                      <WalletCards className="h-4 w-4" />
+                    </div>
+                  </div>
+
+                  {/* Mini balance graph */}
+                  <div className="mt-8 flex h-20 items-end gap-1.5 sm:h-28 sm:gap-2">
+                    {[
+                      "35%",
+                      "48%",
+                      "42%",
+                      "63%",
+                      "55%",
+                      "76%",
+                      "68%",
+                      "86%",
+                      "78%",
+                      "94%",
+                      "88%",
+                      "100%",
+                    ].map((height, index) => (
+                      <span
+                        key={index}
+                        className="
+                          flex-1 rounded-t-full
+                          bg-[var(--background)]/15
+                        "
+                        style={{ height }}
+                      />
+                    ))}
+                  </div>
+
+                  <div className="mt-6 flex gap-2">
+                    <button
+                      type="button"
+                      className="
+                        flex-1 rounded-xl
+                        bg-[var(--background)]
+                        px-4 py-3
+                        text-xs font-bold
+                        text-[var(--foreground)]
+                        transition-transform duration-300
+                        hover:-translate-y-0.5
+                      "
+                    >
+                      Send
+                    </button>
+
+                    <button
+                      type="button"
+                      className="
+                        flex-1 rounded-xl
+                        border border-[var(--background)]/15
+                        px-4 py-3
+                        text-xs font-bold
+                        transition-colors duration-300
+                        hover:bg-[var(--background)]/10
+                      "
+                    >
+                      Receive
+                    </button>
+                  </div>
+                </div>
+
+                {/* Assets */}
+                <div
+                  className="
+                    rounded-[1.75rem]
+                    border border-[var(--border)]
+                    bg-[var(--surface-muted)]
+                    p-5
+                    sm:p-7
+                  "
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-bold">
+                        Your assets
+                      </p>
+
+                      <p className="mt-1 text-xs text-[var(--muted)]">
+                        Available to move
+                      </p>
+                    </div>
+
+                    <span
+                      className="
+                        rounded-full
+                        bg-[var(--accent-soft)]
+                        px-2.5 py-1
+                        text-[10px] font-bold
+                        text-[var(--accent)]
+                      "
+                    >
+                      4 assets
+                    </span>
+                  </div>
+
+                  <div className="mt-6 space-y-2.5">
+                    {[
+                      {
+                        symbol: "₿",
+                        code: "BTC",
+                        amount: "0.025",
+                        label: "Bitcoin",
+                      },
+                      {
+                        symbol: "$",
+                        code: "USDT",
+                        amount: "820.00",
+                        label: "Tether",
+                      },
+                      {
+                        symbol: "$",
+                        code: "USD",
+                        amount: "1,240.00",
+                        label: "US Dollar",
+                      },
+                      {
+                        symbol: "₦",
+                        code: "NGN",
+                        amount: "420,500",
+                        label: "Nigerian Naira",
+                      },
+                    ].map((asset) => (
+                      <div
+                        key={asset.code}
+                        className="
+                          flex items-center
+                          justify-between
+                          rounded-2xl
+                          border border-[var(--border)]
+                          bg-[var(--surface)]
+                          p-3
+                        "
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className="
+                              flex h-9 w-9
+                              items-center justify-center
+                              rounded-xl
+                              bg-[var(--primary-soft)]
+                              text-sm font-bold
+                              text-[var(--primary)]
+                            "
+                          >
+                            {asset.symbol}
+                          </span>
+
+                          <div>
+                            <p className="text-xs font-bold">
+                              {asset.code}
+                            </p>
+
+                            <p className="mt-0.5 text-[10px] text-[var(--muted)]">
+                              {asset.label}
+                            </p>
+                          </div>
+                        </div>
+
+                        <p className="text-xs font-bold">
+                          {asset.amount}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Exchange panel */}
+                <div
+                  className="
+                    rounded-[1.75rem]
+                    border border-[var(--border)]
+                    bg-[var(--surface)]
+                    p-5
+                    sm:p-7
+                    lg:col-span-2
+                  "
+                >
+                  <div
+                    className="
+                      flex flex-col gap-4
+                      sm:flex-row sm:items-center
+                      sm:justify-between
+                    "
+                  >
+                    <div>
+                      <p className="text-sm font-bold">
+                        Quick exchange
+                      </p>
+
+                      <p className="mt-1 text-xs text-[var(--muted)]">
+                        Move between assets in a few taps.
+                      </p>
+                    </div>
+
+                    <span
+                      className="
+                        inline-flex w-fit
+                        items-center gap-2
+                        rounded-full
+                        bg-[var(--accent-soft)]
+                        px-3 py-2
+                        text-[10px] font-bold
+                        text-[var(--accent)]
+                      "
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+                      Ready to exchange
+                    </span>
+                  </div>
+
+                  <div
+                    className="
+                      mt-6
+                      grid gap-3
+                      md:grid-cols-[1fr_auto_1fr]
+                      md:items-center
+                    "
+                  >
+                    {/* Send asset */}
+                    <div
+                      className="
+                        rounded-2xl
+                        border border-[var(--border)]
+                        bg-[var(--surface-muted)]
+                        p-4
+                      "
+                    >
+                      <p className="text-[10px] font-medium text-[var(--muted)]">
+                        You send
+                      </p>
+
+                      <div className="mt-3 flex items-center justify-between gap-3">
+                        <div>
+                          <p className="text-2xl font-bold tracking-tight">
+                            0.025
+                          </p>
+
+                          <p className="mt-1 text-[10px] text-[var(--muted)]">
+                            Bitcoin
+                          </p>
+                        </div>
+
+                        <span
+                          className="
+                            rounded-full
+                            bg-[var(--surface)]
+                            px-3 py-2
+                            text-xs font-bold
+                          "
+                        >
+                          ₿ BTC
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Exchange icon */}
+                    <div
+                      className="
+                        mx-auto
+                        flex h-10 w-10
+                        items-center justify-center
+                        rounded-full
+                        bg-[var(--primary)]
+                        text-white
+                        shadow-[0_10px_30px_rgba(var(--shadow-color),0.25)]
+                      "
+                    >
+                      <ArrowDown className="h-4 w-4 md:hidden" />
+                      <ArrowUpRight className="hidden h-4 w-4 md:block" />
+                    </div>
+
+                    {/* Receive asset */}
+                    <div
+                      className="
+                        rounded-2xl
+                        border border-[var(--border)]
+                        bg-[var(--surface-muted)]
+                        p-4
+                      "
+                    >
+                      <p className="text-[10px] font-medium text-[var(--muted)]">
+                        You receive
+                      </p>
+
+                      <div className="mt-3 flex items-center justify-between gap-3">
+                        <div>
+                          <p className="text-2xl font-bold tracking-tight">
+                            ₦4.125M
+                          </p>
+
+                          <p className="mt-1 text-[10px] text-[var(--muted)]">
+                            Nigerian Naira
+                          </p>
+                        </div>
+
+                        <span
+                          className="
+                            rounded-full
+                            bg-[var(--accent-soft)]
+                            px-3 py-2
+                            text-xs font-bold
+                            text-[var(--accent)]
+                          "
+                        >
+                          ₦ NGN
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    className="
+                      mt-4
+                      flex flex-col gap-3
+                      border-t border-[var(--border)]
+                      pt-4
+                      sm:flex-row sm:items-center
+                      sm:justify-between
+                    "
+                  >
+                    <div className="flex items-center gap-2">
+                      <Check
+                        className="
+                          h-4 w-4
+                          text-[var(--accent)]
+                        "
+                      />
+
+                      <span className="text-xs text-[var(--muted)]">
+                        Transparent exchange estimate
+                      </span>
+                    </div>
+
+                    <span className="text-xs font-bold text-[var(--primary)]">
+                      1 BTC ≈ ₦165M
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating transaction */}
+            <div
+              className="
+                absolute -bottom-5 right-[-0.75rem]
+                hidden
+                w-56
+                rounded-2xl
+                border border-[var(--border)]
+                bg-[var(--surface)]
+                p-4
+                shadow-[0_24px_70px_rgba(var(--shadow-color),0.14)]
+                sm:block
+                lg:right-[-2rem]
+              "
+            >
+              <div className="flex items-center gap-3">
+                <div
+                  className="
+                    flex h-10 w-10
+                    items-center justify-center
+                    rounded-xl
+                    bg-[var(--accent-soft)]
+                    text-[var(--accent)]
+                  "
+                >
+                  <Check className="h-4 w-4" />
+                </div>
+
+                <div>
+                  <p className="text-xs font-bold">
+                    Exchange ready
+                  </p>
+
+                  <p className="mt-0.5 text-[10px] text-[var(--muted)]">
+                    Review before confirming
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Asset rail */}
+          <div
             className="
-              heading-lg mt-5
-              text-[var(--foreground)]
+              mt-10
+              flex flex-wrap
+              items-center
+              justify-center
+              gap-2
+              sm:mt-14
             "
           >
-            Everything you need.
-          </h2>
+            {[
+              ["₿", "BTC"],
+              ["Ξ", "ETH"],
+              ["₮", "USDT"],
+              ["$", "USDC"],
+              ["₦", "NGN"],
+              ["$", "USD"],
+              ["£", "GBP"],
+              ["€", "EUR"],
+            ].map(([symbol, code]) => (
+              <span
+                key={code}
+                className="
+                  inline-flex items-center gap-2
+                  rounded-full
+                  border border-[var(--border)]
+                  bg-[var(--surface)]
+                  px-3 py-2
+                  text-[10px] font-bold
+                  text-[var(--foreground)]
+                "
+              >
+                <span className="text-[var(--primary)]">
+                  {symbol}
+                </span>
+                {code}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
